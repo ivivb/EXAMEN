@@ -10,7 +10,10 @@ package Cheese;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-
+/**
+ *
+ * @author CES
+ */
 public class ListaProductos {
 
     /**
@@ -42,7 +45,12 @@ public class ListaProductos {
     
         if (campo.replace(" ","") == "")  return true; else return false;
     }
-
+    
+    /**
+     * Añade productos
+     * @param prod producto que se añadira
+     * @return si es correcto, nos retornará el producto, si no es correcto, será nulo.
+     */
     public Producto addProducto(Producto prod) {
         
         if (listaP.containsKey(prod.getcode())) {
@@ -55,6 +63,11 @@ public class ListaProductos {
         return prod;
     }
 
+    /**
+     * Elimina productos
+     * @param codigo código del producto
+     * @return nos devuelve el producto
+     */
     public Producto eliminarProducto(String codigo) { 
         
         Producto prod = buscarProducto(codigo);
@@ -66,6 +79,11 @@ public class ListaProductos {
         return prod;
     }
 
+    /**
+     * Buscador de productos
+     * @param codigo código del producto
+     * @return si el código el correcto, nos devuelve el producto, si no, nos dará el código
+     */
     public Producto buscarProducto(String codigo) { 
         Producto prod = null;
         
@@ -77,12 +95,20 @@ public class ListaProductos {
         }
     }
 
+    /**
+     * Es una lista con todos los productos que tenemos
+     * @return nos devuelve lla lista de productos
+     */
     public ArrayList<Producto> getProductos() {
         ArrayList<Producto> prodsList = new ArrayList<>();
         prodsList.addAll(listaP.values());
         return prodsList;
     }
     
+    /**
+     * Nos da el total de productos que tenemos
+     * @return número de productos
+     */
     public int totalProductos(){
             return this.getN();
     }
