@@ -51,8 +51,10 @@ public class ListaProductos {
      * @param prod producto que se añadira
      * @return si es correcto, nos retornará el producto, si no es correcto, será nulo.
      */
-    public Producto addProducto(Producto prod) {
-        
+    public Producto addProducto(Producto prod) { 
+        if(prod.getcode() == null){
+        return null;
+        }
         if (listaP.containsKey(prod.getcode())) {
             // System.out.println("Producto con código duplicado");
             return null;
@@ -61,7 +63,10 @@ public class ListaProductos {
         this.setN(n);
         listaP.put(prod.getcode(), prod);
         return prod;
+        
     }
+    
+
 
     /**
      * Elimina productos
@@ -69,7 +74,9 @@ public class ListaProductos {
      * @return nos devuelve el producto
      */
     public Producto eliminarProducto(String codigo) { 
-        
+        if(codigo == null){
+        return null;
+        }
         Producto prod = buscarProducto(codigo);
         if (prod != null) {
         listaP.remove(codigo);
@@ -86,7 +93,9 @@ public class ListaProductos {
      */
     public Producto buscarProducto(String codigo) { 
         Producto prod = null;
-        
+        if(codigo == null){
+        return null;
+        }
         if (!listaP.containsKey(codigo)) {
             return prod;
         }
